@@ -1,0 +1,47 @@
+import { InteractionHandler, type InteractionHandlerOptions, InteractionHandlerTypes } from '@sapphire/framework'
+import { ApplyOptions } from '@sapphire/decorators'
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder, type ModalSubmitInteraction } from 'discord.js'
+
+@ApplyOptions<InteractionHandlerOptions>( {
+	interactionHandlerType: InteractionHandlerTypes.ModalSubmit
+} )
+export class UserHandler extends InteractionHandler {
+	public override parse( interaction: ModalSubmitInteraction ) {
+		if ( interaction.customId !== 'trivia' ) return this.none()
+		return this.some()
+	}
+
+	public async run( interaction: ModalSubmitInteraction ) {
+		const reviewChannelId = '1107380553935769620'
+		const reviewChannel = await this.container.client.channels.fetch( reviewChannelId )
+		if ( reviewChannel?.type !== ChannelType.GuildText ) return
+
+		const embed = new EmbedBuilder()
+			.setAuthor( {
+				iconURL: interaction.user.avatarURL() || '',
+				name: interaction.user.tag
+			} )
+			.setColor( 0x1b9946 )
+			.setDescription( interaction.fields.getTextInputValue( 'content' ) )
+		const row = new ActionRowBuilder<ButtonBuilder>()
+			.addComponents(
+				new ButtonBuilder()
+					.setCustomId( 'approve' )
+					.setLabel( 'Aprobar' )
+					.setStyle( ButtonStyle.Success ),
+				new ButtonBuilder()
+					.setCustomId( 'decline' )
+					.setLabel( 'Rechazar' )
+					.setStyle( ButtonStyle.Danger )
+			)
+		void reviewChannel.send( {
+			components: [ row ],
+			embeds: [ embed ]
+		} )
+
+		void interaction.reply( {
+			content: '¡Gracias por tu aportación! Los moderadores la revisarán antes de publicarla.',
+			ephemeral: true
+		} )
+	}
+}

@@ -1,12 +1,12 @@
 import { type ApplicationCommandRegistry, Command, type CommandOptions, RegisterBehavior } from '@sapphire/framework'
 import { ApplyOptions } from '@sapphire/decorators'
-import type { CommandInteraction } from 'discord.js'
-import { env } from '../lib'
+import { ActionRowBuilder, CommandInteraction, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js'
+import { env } from '../../lib'
 
 @ApplyOptions<CommandOptions>( {
-	description: 'Pong!',
+	description: 'Comparte una curiosidad de Terraria.',
 	enabled: true,
-	name: 'ping'
+	name: 'curiosidad'
 } )
 export class UserCommand extends Command {
 	public override registerApplicationCommands( registry: ApplicationCommandRegistry ): void {
@@ -22,6 +22,17 @@ export class UserCommand extends Command {
 	}
 
 	public override chatInputRun( interaction: CommandInteraction ): void {
-		void interaction.reply( 'Pong!' )
+		const modal = new ModalBuilder()
+			.setTitle( 'Enviar una curiosidad' )
+			.setCustomId( 'trivia' )
+			.addComponents( new ActionRowBuilder<TextInputBuilder>()
+				.addComponents( new TextInputBuilder()
+					.setCustomId( 'content' )
+					.setLabel( 'Curiosidad' )
+					.setMaxLength( 2000 )
+					.setMinLength( 10 )
+					.setRequired( true )
+					.setStyle( TextInputStyle.Paragraph ) ) )
+		void interaction.showModal( modal )
 	}
 }
