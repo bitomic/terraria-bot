@@ -35,6 +35,14 @@ export class UserHandler extends InteractionHandler {
 		const triviaChannel = await this.container.client.channels.fetch( triviaChannelId )
 		if ( triviaChannel?.type !== ChannelType.GuildText ) return
 
+		void msg.edit( {
+			components: [],
+			embeds: [ EmbedBuilder.from( embed )
+				.setFooter( {
+					iconURL: interaction.user.avatarURL() || '',
+					text: `Aprobado por ${ interaction.user.tag }`
+				} ) ]
+		} )
 		const trivia = await triviaChannel.send( {
 			embeds: [ embed ]
 		} )
