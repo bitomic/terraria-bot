@@ -54,5 +54,7 @@ export class UserHandler extends InteractionHandler {
 					.setURL( trivia.url ) ) ],
 			content: `Has aprobado la curiosidad.`
 		} )
+		await trivia.react( '👍' )
+		await trivia.react( '👎' )
 	}
 }
