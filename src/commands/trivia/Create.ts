@@ -1,6 +1,6 @@
 import { type ApplicationCommandRegistry, Command, type CommandOptions, RegisterBehavior } from '@sapphire/framework'
 import { ApplyOptions } from '@sapphire/decorators'
-import { ActionRowBuilder, CommandInteraction, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js'
+import { ActionRowBuilder, type CommandInteraction, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js'
 import { env } from '../../lib'
 
 @ApplyOptions<CommandOptions>( {

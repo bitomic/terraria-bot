@@ -52,7 +52,7 @@ export class UserHandler extends InteractionHandler {
 					.setLabel( 'Ir al mensaje' )
 					.setStyle( ButtonStyle.Link )
 					.setURL( trivia.url ) ) ],
-			content: `Has aprobado la curiosidad.`
+			content: 'Has aprobado la curiosidad.'
 		} )
 		await trivia.react( '👍' )
 		await trivia.react( '👎' )
