@@ -12,9 +12,7 @@ datasource db {
 
 model TriviaStats {
   channel String
-  downvotes Int @default(0)
   message String @id
-  upvotes Int @default(0)
   user String
 
   @@index([user])
