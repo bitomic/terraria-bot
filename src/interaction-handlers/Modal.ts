@@ -19,7 +19,7 @@ export class UserHandler extends InteractionHandler {
 		const embed = new EmbedBuilder()
 			.setAuthor( {
 				iconURL: interaction.user.avatarURL() || '',
-				name: interaction.user.tag
+				name: interaction.user.username
 			} )
 			.setColor( 0x1b9946 )
 			.setDescription( interaction.fields.getTextInputValue( 'content' ) )
@@ -34,9 +34,16 @@ export class UserHandler extends InteractionHandler {
 					.setLabel( 'Rechazar' )
 					.setStyle( ButtonStyle.Danger )
 			)
-		void reviewChannel.send( {
+		const message = await reviewChannel.send( {
 			components: [ row ],
 			embeds: [ embed ]
+		} )
+		await this.container.prisma.triviaStats.create( {
+			data: {
+				channel: reviewChannel.id,
+				message: message.id,
+				user: interaction.user.id
+			}
 		} )
 
 		void interaction.reply( {

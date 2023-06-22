@@ -56,5 +56,15 @@ export class UserHandler extends InteractionHandler {
 		} )
 		await trivia.react( '👍' )
 		await trivia.react( '👎' )
+
+		await this.container.prisma.triviaStats.update( {
+			data: {
+				channel: triviaChannel.id,
+				message: trivia.id
+			},
+			where: {
+				message: interaction.message.id
+			}
+		} )
 	}
 }
