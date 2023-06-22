@@ -19,8 +19,6 @@ RUN apk add -u --no-cache \
 COPY --chown=node:node yarn.lock .
 COPY --chown=node:node package.json .
 COPY --chown=node:node .yarn/ .yarn/
-COPY --chown=node:node doppler.yaml .
-RUN sed -i 's/dev/prd/g' doppler.yaml
 COPY --chown=node:node .yarnrc.yml .
 # Remove global cache config line
 RUN echo "$(tail -n +2 .yarnrc.yml)" > .yarnrc.yml
