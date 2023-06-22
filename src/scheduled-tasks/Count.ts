@@ -8,6 +8,7 @@ import { env } from '../lib'
 } )
 export class UserTask extends ScheduledTask {
 	public async run( event: APIReaction & { messageId: string; emojiId: { name: string }; users: string[] } | APIMessage ): Promise<void> {
+		this.container.logger.info( 'Count:', event )
 		const channel = await this.container.client.channels.fetch( env.DISCORD_TRIVIA_CHANNEL )
 		if ( !channel?.isTextBased() ) return
 		const messageId = 'me' in event ? event.messageId : event.id
@@ -19,6 +20,7 @@ export class UserTask extends ScheduledTask {
 
 		const upvotes = await this.getReactionUsers( message.reactions.resolve( '👍' ) )
 		const downvotes = await this.getReactionUsers( message.reactions.resolve( '👎' ) )
+		this.container.logger.info( { downvotes, upvotes } )
 		if ( upvotes.length ) {
 			await redis.sadd( upvotesKey, ...upvotes )
 		}
