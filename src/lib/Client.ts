@@ -1,6 +1,7 @@
 import { container, LogLevel, SapphireClient } from '@sapphire/framework'
 import { env } from './environment'
 import { PrismaClient } from '@prisma/client'
+import { Redis } from 'ioredis'
 
 export class UserClient extends SapphireClient {
 	public constructor() {
@@ -13,6 +14,13 @@ export class UserClient extends SapphireClient {
 			}
 		} )
 		container.prisma = new PrismaClient()
+		container.redis = new Redis( {
+			db: env.REDIS_DB,
+			host: env.REDIS_HOST,
+			password: env.REDIS_PASSWORD,
+			port: env.REDIS_PORT,
+			username: env.REDIS_USERNAME
+		} )
 	}
 
 	public async start(): Promise<void> {
@@ -23,5 +31,6 @@ export class UserClient extends SapphireClient {
 declare module '@sapphire/pieces' {
 	interface Container {
 		prisma: PrismaClient
+		redis: Redis
 	}
 }
