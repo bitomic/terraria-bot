@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URI")
+}
+
+model TriviaStats {
+  channel String
+  downvotes Int @default(0)
+  message String @id
+  upvotes Int @default(0)
+  user String
+
+  @@index([user])
+}

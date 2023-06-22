@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@discordjs/rest": "^1.7.1",
+    "@prisma/client": "^4.16.0",
     "@sapphire/decorators": "^6.0.1",
     "@sapphire/framework": "4.4.3",
     "@sapphire/pieces": "^3.6.3",
@@ -23,6 +24,7 @@
     "discord.js": "^14.11.0",
     "pino": "^8.4.2",
     "pino-pretty": "^9.1.0",
+    "prisma": "^4.16.0",
     "ts-dotenv": "^0.8.3"
   },
   "devDependencies": {

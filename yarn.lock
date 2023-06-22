@@ -434,6 +434,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:^4.16.0":
+  version: 4.16.0
+  resolution: "@prisma/client@npm:4.16.0"
+  dependencies:
+    "@prisma/engines-version": 4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: 67fbf8e0bd672d597433b61b65a39c58cbb2eb82e7bcac33f31215d8ca5ba48df790a20aa990c47d6dde53e0d84d1a45d07d872f772d3dd8271613abe879b5d0
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c":
+  version: 4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c
+  resolution: "@prisma/engines-version@npm:4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c"
+  checksum: 23183cab33f95e0711cd6cee7642f4beeeb77b8b0aa54b419f55097bfb96863a11a28f6509ab27fef0ea794522e188044ce850993a25c341333f8305711a255f
+  languageName: node
+  linkType: hard
+
+"@prisma/engines@npm:4.16.0":
+  version: 4.16.0
+  resolution: "@prisma/engines@npm:4.16.0"
+  checksum: 60ef1c3720720cf5a9d23f52c668669736716afd1862c4ac61e8ebcd3ca896e3453f80dfab77f3b68b001c5d499a895f28e54cc5025eae61878b40c1ec5d99c3
+  languageName: node
+  linkType: hard
+
 "@sapphire/async-queue@npm:^1.5.0":
   version: 1.5.0
   resolution: "@sapphire/async-queue@npm:1.5.0"
@@ -2878,6 +2906,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prisma@npm:^4.16.0":
+  version: 4.16.0
+  resolution: "prisma@npm:4.16.0"
+  dependencies:
+    "@prisma/engines": 4.16.0
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: 831a4d14a48474fa144ae0648ed5e3766756b991f1997ecca813a044ef9bd7f2a5794c603adc9d23d867d8f4a0f51cedadaebfd8a841e6923ef9b804ed8bcbbb
+  languageName: node
+  linkType: hard
+
 "process-warning@npm:^2.0.0":
   version: 2.0.0
   resolution: "process-warning@npm:2.0.0"
@@ -3144,6 +3184,7 @@ __metadata:
     "@commitlint/cli": ^17.6.3
     "@commitlint/config-conventional": ^17.6.3
     "@discordjs/rest": ^1.7.1
+    "@prisma/client": ^4.16.0
     "@sapphire/decorators": ^6.0.1
     "@sapphire/framework": 4.4.3
     "@sapphire/pieces": ^3.6.3
@@ -3159,6 +3200,7 @@ __metadata:
     lint-staged: ^13.0.3
     pino: ^8.4.2
     pino-pretty: ^9.1.0
+    prisma: ^4.16.0
     rimraf: ^3.0.2
     ts-dotenv: ^0.8.3
     typescript: ^5.0.4
