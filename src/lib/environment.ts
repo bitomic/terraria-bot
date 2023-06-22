@@ -7,7 +7,9 @@ export const env = load( {
 		optional: true,
 		type: String
 	},
+	DISCORD_REVIEW_CHANNEL: String,
 	DISCORD_TOKEN: String,
+	DISCORD_TRIVIA_CHANNEL: String,
 	NODE_ENV: [
 		'development' as const,
 		'production' as const

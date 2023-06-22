@@ -1,6 +1,7 @@
 import { InteractionHandler, type InteractionHandlerOptions, InteractionHandlerTypes } from '@sapphire/framework'
 import { ApplyOptions } from '@sapphire/decorators'
 import { ActionRowBuilder, ButtonBuilder, type ButtonInteraction, ButtonStyle, ChannelType, EmbedBuilder } from 'discord.js'
+import { env } from '../lib'
 
 @ApplyOptions<InteractionHandlerOptions>( {
 	interactionHandlerType: InteractionHandlerTypes.Button
@@ -31,8 +32,7 @@ export class UserHandler extends InteractionHandler {
 			return
 		}
 
-		const triviaChannelId = '1107381278367551570'
-		const triviaChannel = await this.container.client.channels.fetch( triviaChannelId )
+		const triviaChannel = await this.container.client.channels.fetch( env.DISCORD_TRIVIA_CHANNEL )
 		if ( triviaChannel?.type !== ChannelType.GuildText ) return
 
 		void msg.edit( {

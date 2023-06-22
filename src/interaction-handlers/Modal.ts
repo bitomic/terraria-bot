@@ -1,6 +1,7 @@
 import { InteractionHandler, type InteractionHandlerOptions, InteractionHandlerTypes } from '@sapphire/framework'
 import { ApplyOptions } from '@sapphire/decorators'
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder, type ModalSubmitInteraction } from 'discord.js'
+import { env } from '../lib'
 
 @ApplyOptions<InteractionHandlerOptions>( {
 	interactionHandlerType: InteractionHandlerTypes.ModalSubmit
@@ -12,8 +13,7 @@ export class UserHandler extends InteractionHandler {
 	}
 
 	public async run( interaction: ModalSubmitInteraction ) {
-		const reviewChannelId = '1107380553935769620'
-		const reviewChannel = await this.container.client.channels.fetch( reviewChannelId )
+		const reviewChannel = await this.container.client.channels.fetch( env.DISCORD_REVIEW_CHANNEL )
 		if ( reviewChannel?.type !== ChannelType.GuildText ) return
 
 		const embed = new EmbedBuilder()

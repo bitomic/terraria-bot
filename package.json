@@ -10,7 +10,7 @@
     "build:watch": "yarn tsc -w --incremental",
     "lint": "eslint src/ --ext .ts --cache",
     "lint:fix": "eslint src/ --fix --ext .ts --cache",
-    "start": "yarn node --enable-source-maps dist/main.js"
+    "start": "doppler run -- yarn node --enable-source-maps dist/main.js"
   },
   "dependencies": {
     "@discordjs/rest": "^1.7.1",
@@ -18,7 +18,9 @@
     "@sapphire/decorators": "^6.0.1",
     "@sapphire/framework": "4.4.3",
     "@sapphire/pieces": "^3.6.3",
+    "@sapphire/plugin-scheduled-tasks": "^7.1.0",
     "@sapphire/utilities": "^3.11.2",
+    "bullmq": "^4.0.0",
     "colorette": "^2.0.19",
     "discord-api-types": "^0.37.42",
     "discord.js": "^14.11.0",

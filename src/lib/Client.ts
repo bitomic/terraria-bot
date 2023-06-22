@@ -2,25 +2,39 @@ import { container, LogLevel, SapphireClient } from '@sapphire/framework'
 import { env } from './environment'
 import { PrismaClient } from '@prisma/client'
 import { Redis } from 'ioredis'
+import { IntentsBitField, Partials } from 'discord.js'
 
 export class UserClient extends SapphireClient {
 	public constructor() {
-		super( {
-			defaultPrefix: env.DISCORD_PREFIX ?? '!',
-			intents: [],
-			loadDefaultErrorListeners: true,
-			logger: {
-				level: LogLevel.Info
-			}
-		} )
-		container.prisma = new PrismaClient()
-		container.redis = new Redis( {
+		const redis = new Redis( {
 			db: env.REDIS_DB,
 			host: env.REDIS_HOST,
+			maxRetriesPerRequest: null,
 			password: env.REDIS_PASSWORD,
 			port: env.REDIS_PORT,
 			username: env.REDIS_USERNAME
 		} )
+
+		super( {
+			defaultPrefix: env.DISCORD_PREFIX ?? '!',
+			intents: new IntentsBitField( [ 'Guilds', 'GuildMessages', 'GuildMessageReactions' ] ),
+			loadDefaultErrorListeners: true,
+			logger: {
+				level: LogLevel.Info
+			},
+			partials: [ Partials.Message, Partials.Reaction, Partials.User ],
+			tasks: {
+				bull: {
+					connection: redis,
+					defaultJobOptions: {
+						removeOnComplete: true,
+						removeOnFail: true
+					}
+				}
+			}
+		} )
+		container.prisma = new PrismaClient()
+		container.redis = redis
 	}
 
 	public async start(): Promise<void> {
