@@ -27,7 +27,7 @@
     "discord-api-types": "^0.37.46",
     "discord.js": "^14.11.0",
     "ioredis": "^5.3.2",
-    "pino": "^8.4.2",
+    "pino": "^8.14.1",
     "pino-pretty": "^9.1.0",
     "prisma": "^4.16.1",
     "ts-dotenv": "^0.8.3"
