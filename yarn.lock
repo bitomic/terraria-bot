@@ -4021,7 +4021,7 @@ __metadata:
     pino-pretty: ^9.4.0
     prisma: ^4.16.1
     rimraf: ^3.0.2
-    ts-dotenv: ^0.8.3
+    ts-dotenv: ^0.9.1
     typescript: ^5.0.4
   languageName: unknown
   linkType: soft
@@ -4488,10 +4488,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-dotenv@npm:^0.8.3":
-  version: 0.8.3
-  resolution: "ts-dotenv@npm:0.8.3"
-  checksum: 286fa123b66a6dc0a9b7249a74b83c06a2bc8be77b7c9cbbeeb73219090d3af267f2baa590a0e5f1fcfca99c3a170f3386ca02dd1b48b84a72d0087377e50443
+"ts-dotenv@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "ts-dotenv@npm:0.9.1"
+  checksum: ad2cc75747a99bc358f6576bb6ee37144bb3d18da1dfde45d5490b73cc383a5c5141298353ff85e2bf69ca4680924a2d958afe36cc0b069c9e31da45c7c6cb88
   languageName: node
   linkType: hard
 
