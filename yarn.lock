@@ -3623,9 +3623,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-pretty@npm:^9.4.1":
-  version: 9.4.1
-  resolution: "pino-pretty@npm:9.4.1"
+"pino-pretty@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "pino-pretty@npm:10.0.1"
   dependencies:
     colorette: ^2.0.7
     dateformat: ^4.6.3
@@ -3643,7 +3643,7 @@ __metadata:
     strip-json-comments: ^3.1.1
   bin:
     pino-pretty: bin.js
-  checksum: 0fa272382398afe0854f5cdd94263cb311a3bf038dfa1fad5c9ddff6612d7ec108f5e7e8b7ee070ed953354ab0c542f1f165f976a2229933c44c7f6a783f4990
+  checksum: b156c066c106026cb6a555c1f6ebb6b15636ce5516917cc979a179dcb17fdaaf7361cbe6242ae8f3661e9cfa6c18c35906afde3f9511bd2ec80dc39b6693fdde
   languageName: node
   linkType: hard
 
@@ -4029,7 +4029,7 @@ __metadata:
     ioredis: ^5.3.2
     lint-staged: ^13.2.3
     pino: ^8.14.1
-    pino-pretty: ^9.4.1
+    pino-pretty: ^10.0.1
     prisma: ^4.16.2
     rimraf: ^5.0.1
     ts-dotenv: ^0.9.1
