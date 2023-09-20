@@ -22,7 +22,7 @@
     "@sapphire/pieces": "^3.7.0",
     "@sapphire/plugin-scheduled-tasks": "^7.1.2",
     "@sapphire/utilities": "^3.13.0",
-    "bullmq": "^4.11.1",
+    "bullmq": "^4.11.2",
     "colorette": "^2.0.20",
     "discord-api-types": "^0.37.56",
     "discord.js": "^14.11.0",
