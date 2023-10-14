@@ -15,7 +15,7 @@
     "start": "doppler run -- yarn node --enable-source-maps dist/main.js"
   },
   "dependencies": {
-    "@discordjs/rest": "^1.7.1",
+    "@discordjs/rest": "^2.0.1",
     "@prisma/client": "^4.16.2",
     "@sapphire/decorators": "^6.0.2",
     "@sapphire/framework": "4.6.1",
