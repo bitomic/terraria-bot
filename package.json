@@ -18,7 +18,7 @@
     "@discordjs/rest": "^1.7.1",
     "@prisma/client": "^4.16.2",
     "@sapphire/decorators": "^6.0.2",
-    "@sapphire/framework": "4.7.0",
+    "@sapphire/framework": "4.7.1",
     "@sapphire/pieces": "^3.7.0",
     "@sapphire/plugin-scheduled-tasks": "^7.1.2",
     "@sapphire/utilities": "^3.13.0",
